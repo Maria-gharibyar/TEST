@@ -351,13 +351,17 @@
         var navbar=document.getElementById('navbar')
         var sticky=navbar.offsetTop;
         function scrollFuntion() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-   
-  } else {
-    navbar.classList.remove("sticky");
-    navbar.classList.remove('logDispaly');
-  }
+ if (window.pageYOffset >= sticky) {
+                if (!navbar.classList.contains("sticky")) {
+                    navbar.classList.add("sticky");
+                    navbar.classList.add("logDispaly");
+                }
+            } else {
+                if (navbar.classList.contains("sticky")) {
+                    navbar.classList.remove("sticky");
+                    navbar.classList.remove("logDispaly");
+                }
+            }
 }
     </script>
 </body>
